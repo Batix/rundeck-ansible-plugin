@@ -38,11 +38,13 @@ public class AnsibleResourceModelSourceFactory implements ResourceModelSourceFac
         builder.property(DISABLE_LIMIT_PROP);
         builder.property(IGNORE_TAGS_PREFIX_PROP);
         builder.property(EXTRA_TAG_PROP);
+        builder.property(IMPORT_INVENTORY_VARS_PROP);
+        builder.property(IGNORE_INVENTORY_VARS_PROP);
         builder.property(EXTRA_ATTRS_PROP);
         builder.property(SSH_AUTH_TYPE_PROP);
         builder.property(SSH_USER_PROP);
         builder.property(SSH_PASSWORD_PROP);
-        builder.property(SSH_KEY_FILE_PROP); 
+        builder.property(SSH_KEY_FILE_PROP);
         builder.property(SSH_TIMEOUT_PROP);
         builder.property(BECOME_PROP);
         builder.property(BECOME_AUTH_TYPE_PROP);

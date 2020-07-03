@@ -4,7 +4,7 @@ import com.dtolabs.rundeck.core.execution.workflow.steps.FailureReason;
 import com.dtolabs.rundeck.core.execution.workflow.steps.StepException;
 
 public class AnsibleException extends StepException {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public static enum AnsibleFailureReason implements FailureReason {
@@ -16,7 +16,7 @@ public class AnsibleException extends StepException {
 		  ParseArgumentsError,
 		  Unknown
 		}
-	
+
     protected AnsibleFailureReason failureReason;
 
     public AnsibleException(String msg, AnsibleFailureReason reason) {

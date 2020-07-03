@@ -30,7 +30,7 @@ configurations {
 }
 
 dependencies {
-  pluginLibs 'com.google.code.gson:gson:2.8.5'
+  pluginLibs 'com.google.code.gson:gson:2.8.6'
   compile 'org.rundeck:rundeck-core:3.0.1-20180803'
 }
 

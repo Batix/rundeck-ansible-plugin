@@ -9,8 +9,8 @@ import com.dtolabs.rundeck.core.plugins.configuration.ConfigurationException;
 
 public class PropertyResolver {
     /**
-     * Resolve a job/node/project/framework property by first checking the job attributes named X, 
-     * then node attributes named X, project properties named "project.X", then framework properties 
+     * Resolve a job/node/project/framework property by first checking the job attributes named X,
+     * then node attributes named X, project properties named "project.X", then framework properties
      * named "framework.X". If none of those exist, return the default value
      */
     public static String resolveProperty(
@@ -55,7 +55,7 @@ public class PropertyResolver {
             return defaultValue;
         }
     }
-    
+
     public static Integer resolveIntProperty(
             final String attribute,
             final Integer defaultValue,
