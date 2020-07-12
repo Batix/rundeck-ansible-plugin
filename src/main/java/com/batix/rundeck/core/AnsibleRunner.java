@@ -396,6 +396,7 @@ public class AnsibleRunner {
     if (inventory != null && inventory.length() > 0) {
       procArgs.add("--inventory-file" + "=" + inventory);
     }
+    /* TODO add file here */
 
     if (limits != null && limits.size() == 1) {
       procArgs.add("-l");
