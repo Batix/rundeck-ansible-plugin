@@ -66,6 +66,8 @@ public class AnsibleResourceModelSource implements ResourceModelSource {
 
   protected String baseDirectoryPath;
 
+  protected String ansibleBinariesDirectoryPath;
+
   protected String extraParameters;
 
   public AnsibleResourceModelSource(final Framework framework) {
@@ -135,6 +137,8 @@ public class AnsibleResourceModelSource implements ResourceModelSource {
     vaultPassword = (String) resolveProperty(AnsibleDescribable.ANSIBLE_VAULT_PASSWORD,null,configuration,executionDataContext);
 
     baseDirectoryPath = (String) resolveProperty(AnsibleDescribable.ANSIBLE_BASE_DIR_PATH,null,configuration,executionDataContext);
+
+    ansibleBinariesDirectoryPath = (String) resolveProperty(AnsibleDescribable.ANSIBLE_BINARIES_DIR_PATH, null, configuration, executionDataContext);
 
     extraParameters = (String)  resolveProperty(AnsibleDescribable.ANSIBLE_EXTRA_PARAM,null,configuration,executionDataContext);
 
@@ -221,6 +225,10 @@ public class AnsibleResourceModelSource implements ResourceModelSource {
       }
       if (baseDirectoryPath != null) {
 	      runner.baseDirectory(baseDirectoryPath);
+      }
+
+      if (ansibleBinariesDirectoryPath != null) {
+        runner.ansibleBinariesDirectory(ansibleBinariesDirectoryPath);
       }
 
       if (extraParameters != null){

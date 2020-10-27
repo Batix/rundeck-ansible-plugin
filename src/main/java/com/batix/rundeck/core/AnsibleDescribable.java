@@ -141,6 +141,7 @@ public interface AnsibleDescribable extends Describable {
 
     public static final String ANSIBLE_CONFIG_FILE_PATH = "ansible-config-file-path";
     public static final String ANSIBLE_BASE_DIR_PATH = "ansible-base-dir-path";
+    public static final String ANSIBLE_BINARIES_DIR_PATH = "ansible-binaries-dir-path";
 
     public static final String PROJ_PROP_PREFIX = "project.";
     public static final String FWK_PROP_PREFIX = "framework.";
@@ -475,5 +476,12 @@ public interface AnsibleDescribable extends Describable {
             .required(false)
             .title("Ansible config file path")
             .description("Set ansible config file path.")
+            .build();
+
+    static final Property BINARIES_DIR_PATH_PROP = PropertyBuilder.builder()
+            .string(ANSIBLE_BINARIES_DIR_PATH)
+            .required(false)
+            .title("Ansible binaries directory path")
+            .description("Set ansible binaries directory path.")
             .build();
 }

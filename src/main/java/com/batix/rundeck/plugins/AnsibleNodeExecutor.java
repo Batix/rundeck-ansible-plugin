@@ -32,6 +32,7 @@ public class AnsibleNodeExecutor implements NodeExecutor, AnsibleDescribable {
         builder.name(SERVICE_PROVIDER_NAME);
         builder.title("Ansible Ad-Hoc Node Executor");
         builder.description("Runs Ansible Ad-Hoc commands on the nodes using the shell module.");
+        builder.property(BINARIES_DIR_PATH_PROP);
         builder.property(EXECUTABLE_PROP);
         builder.property(WINDOWS_EXECUTABLE_PROP);
         builder.property(CONFIG_FILE_PATH);

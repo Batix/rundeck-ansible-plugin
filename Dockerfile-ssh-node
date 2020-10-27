@@ -1,0 +1,21 @@
+FROM ubuntu:20.04
+
+RUN apt-get update \
+ && apt-get install -y openssh-server \
+ && rm -rf /var/lib/apt/lists/* \
+ && mkdir -p /var/run/sshd
+
+RUN adduser \
+ --system \
+ --shell /bin/bash \
+ --gecos 'Ansible user' \
+ --group \
+ --disabled-password \
+ --home /home/ansible \
+ ansible \
+ && mkdir -p /home/ansible/.ssh
+
+COPY --chown=ansible:ansible docker/authorized_keys /home/ansible/.ssh/authorized_keys
+
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]

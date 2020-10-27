@@ -782,6 +782,18 @@ public class AnsibleRunnerBuilder {
         return baseDir;
     }
 
+    public String getBinariesFilePath() {
+        String binariesFilePathStr = null;
+        Object binariesFilePath = getjobConf().get(AnsibleDescribable.ANSIBLE_BINARIES_DIR_PATH);
+        if (null != binariesFilePath) {
+            binariesFilePathStr = (String) binariesFilePath;
+            if (binariesFilePathStr.contains("${")) {
+                return DataContextUtils.replaceDataReferences(binariesFilePathStr, getContext().getDataContext());
+            }
+        }
+        return binariesFilePathStr;
+    }
+
     public AnsibleRunner buildAnsibleRunner() throws ConfigurationException{
 
         AnsibleRunner runner = null;
@@ -905,6 +917,11 @@ public class AnsibleRunnerBuilder {
         String baseDir = getBaseDir();
         if (baseDir != null) {
             runner = runner.baseDirectory(baseDir);
+        }
+
+        String binariesFilePath = getBinariesFilePath();
+        if (binariesFilePath != null) {
+            runner = runner.ansibleBinariesDirectory(binariesFilePath);
         }
 
         return runner;

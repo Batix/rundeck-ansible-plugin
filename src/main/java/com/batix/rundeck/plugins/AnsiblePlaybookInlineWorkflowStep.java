@@ -28,7 +28,8 @@ public class AnsiblePlaybookInlineWorkflowStep implements StepPlugin, AnsibleDes
         builder.title("Ansible Playbook Inline");
         builder.description("Runs an Inline Ansible Playbook.");
 
-				builder.property(BASE_DIR_PROP);
+        builder.property(BINARIES_DIR_PATH_PROP);
+        builder.property(BASE_DIR_PROP);
         builder.property(PLAYBOOK_INLINE_PROP);
         builder.property(EXTRA_VARS_PROP);
         builder.property(VAULT_KEY_FILE_PROP);
