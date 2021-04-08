@@ -1,0 +1,30 @@
+version: "3.6"
+services:
+
+  ssh-node:
+    build:
+      context: .
+      dockerfile: Dockerfile-ssh-node
+    image: rundeck-ssh-node:latest
+    networks:
+      - rundeck
+    ports:
+      - "2222:22"
+
+  rundeck:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rundeck-ansible-plugin:latest
+    networks:
+      - rundeck
+    ports:
+      - "4440:4440"
+    volumes:
+    - rundeck-data:/home/rundeck/data
+
+volumes:
+  rundeck-data:
+
+networks:
+  rundeck:

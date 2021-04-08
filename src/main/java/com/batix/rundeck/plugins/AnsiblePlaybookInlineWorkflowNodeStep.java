@@ -29,6 +29,7 @@ public class AnsiblePlaybookInlineWorkflowNodeStep implements NodeStepPlugin, An
         builder.title("Ansible Playbook Inline Workflow Node Step");
         builder.description("Runs an Inline Ansible Playbook.");
 
+        builder.property(BINARIES_DIR_PATH_PROP);
         builder.property(BASE_DIR_PROP);
         builder.property(PLAYBOOK_INLINE_PROP);
         builder.property(EXTRA_VARS_PROP);

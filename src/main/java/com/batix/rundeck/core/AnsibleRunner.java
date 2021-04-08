@@ -101,6 +101,7 @@ public class AnsibleRunner {
   private boolean debug = false;
 
   private Path baseDirectory;
+  private Path ansibleBinariesDirectory;
   private boolean usingTempDirectory;
   private boolean retainTempDirectory;
   private final List<String> limits = new ArrayList<>();
@@ -326,6 +327,13 @@ public class AnsibleRunner {
     return this;
   }
 
+  public AnsibleRunner ansibleBinariesDirectory(String dir) {
+    if (dir != null) {
+      this.ansibleBinariesDirectory = Paths.get(dir);
+    }
+    return this;
+  }
+
   /**
    * Specify the executable
    */
@@ -369,7 +377,11 @@ public class AnsibleRunner {
     File tempVarsFile = null;
 
     List<String> procArgs = new ArrayList<>();
-    procArgs.add(type.command);
+    String ansibleCommand = type.command;
+    if (ansibleBinariesDirectory != null) {
+      ansibleCommand = Paths.get(ansibleBinariesDirectory.toFile().getAbsolutePath(), ansibleCommand).toFile().getAbsolutePath();
+    }
+    procArgs.add(ansibleCommand);
 
     // parse arguments
     if (type == AnsibleCommand.AdHoc) {

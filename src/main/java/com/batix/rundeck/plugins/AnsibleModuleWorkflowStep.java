@@ -28,6 +28,7 @@ public class AnsibleModuleWorkflowStep implements StepPlugin, AnsibleDescribable
         builder.title("Ansible Module");
         builder.description("Runs an Ansible Module on selected nodes.");
 
+        builder.property(BINARIES_DIR_PATH_PROP);
         builder.property(BASE_DIR_PROP);
         builder.property(MODULE_PROP);
         builder.property(MODULE_ARGS_PROP);
