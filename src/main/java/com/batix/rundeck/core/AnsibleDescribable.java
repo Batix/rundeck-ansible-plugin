@@ -71,6 +71,13 @@ public interface AnsibleDescribable extends Describable {
     }
 
     public static enum BecomeMethodType {
+        doas,
+        dzdo,
+        ksu,
+        machinectl,
+        runas,
+        pbrun,
+        pfexec,
         sudo,
         su;
 
